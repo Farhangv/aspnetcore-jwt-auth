@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace webapplication.Controllers
 {
     [Route("api/[controller]")]
-    public class CustomersController : Controller
+    public class ProductsController : Controller
     {
         // GET api/values
         [HttpGet,Authorize(Roles = "Manager")]
         public IEnumerable<string> Get()
         {
-            return new string[] { "John Doe", "Jane Doe" };
+            return new string[] { "Laptop", "Mouse", "Monitor", "Headset", "Keyboard" };
         }
 
     }
