@@ -7,7 +7,6 @@ namespace webapplication.Controllers
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-        // GET api/values
         [HttpGet,Authorize(Roles = "Manager")]
         public IEnumerable<string> Get()
         {

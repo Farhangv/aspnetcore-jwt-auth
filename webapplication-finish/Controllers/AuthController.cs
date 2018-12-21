@@ -11,7 +11,6 @@ namespace webapplication.Controllers
     [Route("api/auth")]
     public class AuthController : Controller
     {
-        // GET api/values
         [HttpPost, Route("login")]
         public IActionResult Login([FromBody]LoginModel user)
         {
@@ -22,21 +21,19 @@ namespace webapplication.Controllers
 
             if (user.UserName == "johndoe" && user.Password == "Pa$$w0rd")
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySuperSecretKey@345"));
-
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Role, "Manager")
+                    new Claim(ClaimTypes.Role, "Manager"),
                 };
 
                 var tokeOptions = new JwtSecurityToken(
                     issuer: "http://localhost:5000",
                     audience: "http://localhost:5000",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(5),
+                    expires: DateTime.Now.AddMinutes(10),
                     signingCredentials: signinCredentials
                 );
 
