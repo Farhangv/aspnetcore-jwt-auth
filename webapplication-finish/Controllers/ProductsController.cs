@@ -7,7 +7,7 @@ namespace webapplication.Controllers
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-        [HttpGet,Authorize(Roles = "Manager")]
+        [HttpGet, Authorize(Roles = "Manager")]
         public IEnumerable<string> Get()
         {
             return new string[] { "Laptop", "Mouse", "Monitor", "Headset", "Keyboard" };

@@ -9,15 +9,15 @@ import { JwtHelper } from 'angular2-jwt'
 
 import { HomeComponent } from 'app/home/home.component';
 import { LoginComponent } from 'app/login/login.component';
-import { CustomersComponent } from 'app/customers/customers.component';
 import { AppComponent } from './app/app.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
-    CustomersComponent,
     AppComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import { AppComponent } from './app/app.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
+      { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
     ])
   ],
   providers: [JwtHelper, AuthGuard],
